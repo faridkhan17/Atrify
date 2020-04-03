@@ -10,14 +10,6 @@ public interface ProductDao {
     // product with id
     boolean insertProduct(Product product);
 
-    // product without id, randomly generated
-    /*
-    default boolean insertProduct(Product product) {
-
-        return insertProduct(product);
-    }*/
-
-
     default List<Product> getAllProducts() {
         return getAllProducts();
     }
