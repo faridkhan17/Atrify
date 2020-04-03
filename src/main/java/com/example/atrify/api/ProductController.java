@@ -21,11 +21,13 @@ public class ProductController {
         this.productService = productService;
     }
 
+
     @PostMapping("/add")
     public boolean addProduct(@RequestBody Product product) {
 
         return productService.addProduct(product);
     }
+
 
     @GetMapping("/getProduct/{id}")
     public Optional<Product> getProduct(@NotNull @PathVariable("id") int id) {
@@ -38,9 +40,11 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+
     @PutMapping("/update")
     public boolean updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product); }
+
 
     @PutMapping("/buy/{id}/{quantity}")
     public boolean buyProduct(@NotNull @PathVariable("id") int id, @NotNull @PathVariable("quantity") int stock) {

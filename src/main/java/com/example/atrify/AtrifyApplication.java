@@ -16,6 +16,8 @@ public class AtrifyApplication {
         SpringApplication.run(AtrifyApplication.class, args);
     }
 
+
+    // 1. The product stock has a predefined initial stock of 100 items
     @Bean
 
     CommandLineRunner runner(ProductDao productDao) {

@@ -15,16 +15,22 @@ public class FakeProductDataAccessService implements ProductDao {
 
     private static List<Product> DB = new ArrayList<>();
 
+
+    // 4. It must be possible to refill the product stock
     @Override
     public boolean insertProduct(Product product) {
         return DB.add(new Product(product.getId(), product.getName(), product.getStock()));
     }
 
+
+    // 2. It must be possible to request the entire product and product stock information
     @Override
     public List<Product> getAllProducts() {
         return DB;
     }
 
+
+    // 3. It must be possible to request the stock of an individual product
     @Override
     public Optional<Product> getProduct(int id) {
         return DB
@@ -33,6 +39,8 @@ public class FakeProductDataAccessService implements ProductDao {
                 .findFirst();
     }
 
+
+    // update product in DB, also used for buyProduct function
     @Override
     public boolean updateProduct(Product product) {
         return getProduct(product.getId())
@@ -47,6 +55,9 @@ public class FakeProductDataAccessService implements ProductDao {
                 .orElse(false);
     }
 
+
+    // 5. Buying the product decreases the stock
+    // 6. It is not allowed to buy more product items than its stock provides
     @Override
     public boolean buyProduct(int id, int stock) {
         Optional<Product> product = getProduct(id);
