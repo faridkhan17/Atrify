@@ -1,17 +1,14 @@
 package com.example.atrify.dao;
 
 import com.example.atrify.model.Product;
-import com.sun.istack.NotNull;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository("fakeDao")
-public class FakeProductDataAccessService implements ProductDao {
+public class ProductDataAccessService implements ProductDao {
 
     private static List<Product> DB = new ArrayList<>();
 
@@ -20,6 +17,7 @@ public class FakeProductDataAccessService implements ProductDao {
     @Override
     public boolean insertProduct(Product product) {
         return DB.add(new Product(product.getId(), product.getName(), product.getStock()));
+
     }
 
 
